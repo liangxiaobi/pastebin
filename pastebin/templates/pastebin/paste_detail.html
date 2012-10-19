@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h1>{{ object }}</h1>
+Syntax: {{ object.get_syntax_display }}<br>
+Date: {{ object.timestamp|date:"r" }}<br>
+<hr>
+<code>
+<pre name="code" class="{{ object.get_syntax_display|lower}}">
+{{ object.content }}
+</pre>
+</code>
+<link type="text/css" rel="stylesheet" href="/static/dp.SyntaxHighlighter/Styles/SyntaxHighlighter.css"></link>
+<script language="javascript" src="static/dp.SyntaxHighlighter/Scripts/shCore.js"></script>
+
+<script language="javascript" src="static/dp.SyntaxHighlighter/Scripts/shBrushPython.js"></script>
+<script language="javascript" >
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+
+{% endblock %}
